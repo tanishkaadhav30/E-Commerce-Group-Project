@@ -114,6 +114,7 @@ function getFilteredProducts() {
     }
     return products;
 }
+
 function renderWishlist() {
     const products = getFilteredProducts();
     wishlistGrid.innerHTML = "";
