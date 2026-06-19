@@ -105,17 +105,53 @@
   </section>
 
   <!-- featured products -->
-    <section class="featured-products">
-      <h2 class="section-title">Featured Products</h2>
+  <section class="featured-products">
+    <h2 class="section-title">Featured Products</h2>
 
-      <div class="products-container">
-        <div class="product-card">
+    <div class="products-container">
+      <div class="product-card">
+        <img src="./images/laptop1.jpg" alt="Gaming Laptop" onclick="openProductDetails()" />
+        <h3>Laptop</h3>
+        <p class="price">₹59,999</p>
+        <button onclick="addToCart('Laptop')">Add to Cart</button>
+      </div>
+
+              <div class="product-card">
           <img
-            src="./images/laptop1.jpg"
-            alt="Gaming Laptop"
+            src="./images/headphone.jpg"
+            alt="Wireless Headphones"
             onclick="openProductDetails()"
           />
+          <h3>Wireless Headphones</h3>
+          <p class="price">₹2,999</p>
+          <button onclick="addToCart('Wireless Headphones')">
+            Add to Cart
+          </button>
         </div>
+
+                <div class="product-card">
+          <img
+            src="./images/watch.jpg"
+            alt="Smart Watch"
+            onclick="openProductDetails()"
+          />
+          <h3>Smart Watch</h3>
+          <p class="price">₹4,999</p>
+          <button onclick="addToCart('Smart Watch')">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img
+            src="./images/shoes.jpg"
+            alt="Sports Shoes"
+            onclick="openProductDetails()"
+          />
+          <h3>Sports Shoes</h3>
+          <p class="price">₹1,999</p>
+          <button onclick="addToCart('Sports Shoes')">Add to Cart</button>
+        </div>
+
+       </div>
     </section>
 
   <script src="./js/app.js"></script>

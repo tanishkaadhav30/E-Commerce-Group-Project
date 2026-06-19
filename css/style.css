@@ -264,3 +264,18 @@ header .navbar {
 .product-card h3 {
     margin: 15px 0;
 }
+.price {
+    color: #2563eb;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.product-card button {
+    margin: 15px 0 20px;
+    padding: 10px 25px;
+    border: none;
+    background: #2563eb;
+    color: white;
+    border-radius: 25px;
+    cursor: pointer;
+}
