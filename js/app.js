@@ -29,3 +29,14 @@ function nextSlide() {
 
     showSlide(currentSlide);
 }
+
+function prevSlide() {
+
+    currentSlide--;
+
+    if (currentSlide < 0) {
+        currentSlide = slides.length - 1;
+    }
+
+    showSlide(currentSlide);
+}
