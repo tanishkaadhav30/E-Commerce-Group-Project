@@ -26,6 +26,7 @@ function updateSummary(){
 }
 
 function renderWishlist(products = wishlist){
+    document.querySelector(".bulk-actions").style.display = wishlist.length === 0 ? "none" : "flex";
     wishlistGrid.innerHTML = "";
     updateSummary();
     if(wishlist.length === 0){
