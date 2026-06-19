@@ -62,3 +62,8 @@ function addToCart(productName) {
 function openProductDetails() {
     window.location.href = "product-details.html";
 }
+
+// offer
+function shopNow() {
+    window.location.href = "products.html";
+}
