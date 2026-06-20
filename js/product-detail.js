@@ -8,6 +8,8 @@ products.find(
 p => p.id == productId
 );
 
+console.log("Selected Product ID:", productId);
+console.log("Products:", products);
 if(!product){
 
     alert(
@@ -15,7 +17,8 @@ if(!product){
     );
 
     window.location.href =
-    "product.html";
+    "products.html";
+    return;
 
 }
 
