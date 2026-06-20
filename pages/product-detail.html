@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="./../css/product-detail.css">
+      <link rel="stylesheet" href="./../css/header.css">
+    <link rel="stylesheet" href="./../css/footer.css">
+</head>
+<body>
+     <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="./../images/logo.png" alt="Logo" class="logo-img" />
+                <a href="./../index.html">MegaStore</a>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="./../index.html">Home</a></li>
+                <li><a href="./product.html">Products</a></li>
+                <li><a href="./wishlist.html">Wishlist</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./cart.html">Cart</a></li>
+                <li><a href="./login.html">Login</a></li>
+            </ul>
+
+            <div class="menu-btn" onclick="toggleMenu()">
+                <img src="./../images/menu.png" alt="menu" />
+            </div>
+    </header>
+
+<div class="container">
+
+    <div class="image-section">
+
+        <img id="mainImage">
+
+
+        <div id="thumbnails"></div>
+
+        <h3 class="feature-title">
+    Why Shop With Us?
+</h3>
+<div class="product-features">
+
+    <div class="feature-item">
+        <i class="fa-solid fa-truck-fast"></i>
+        <span>Free Delivery</span>
+    </div>
+
+    <div class="feature-item">
+        <i class="fa-solid fa-rotate-left"></i>
+        <span>7 Days Return</span>
+    </div>
+
+    <div class="feature-item">
+        <i class="fa-solid fa-lock"></i>
+        <span>Secure Payment</span>
+    </div>
+
+</div>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+<div class="details">
+
+    <h1 id="productName"></h1>
+
+    <div class="price-box">
+        <del id="originalPrice"></del>
+        <span id="productPrice"></span>
+        <span id="discount"></span>
+    </div>
+
+    <p class="stock">
+        <i class="fa-solid fa-circle-check"></i>
+        In Stock
+    </p>
+
+    <div class="description-section">
+
+        <h3>Details</h3>
+
+        <p id="description"></p>
+
+    </div>
+
+
+   
+<div class="info-row">
+
+    <div class="highlights">
+
+        <h3>Highlights</h3>
+
+        <ul id="highlights"></ul>
+
+    </div>
+
+    <div class="purchase-section">
+
+        <h3>Select Quantity</h3>
+
+        <div class="quantity">
+
+            <button onclick="decreaseQty()">-</button>
+
+            <span id="qty">1</span>
+
+            <button onclick="increaseQty()">+</button>
+
+        </div>
+         <h3 class="purchase-option">Purchase Option</h3>
+
+        <div class="btn-group">
+
+            <button
+class="cart-btn"
+onclick="buyNow()">
+
+    <i class="fa-solid fa-bag-shopping"></i>
+
+    Buy Now
+
+</button>
+
+<button
+class="wishlist-btn"
+onclick="addToWishlist()">
+
+    <i class="fa-regular fa-heart"></i>
+
+    Wishlist
+
+</button>
+
+        </div>
+
+    </div>
+
+</div>
+<div class="review-row">
+
+    <div class="rating-section">
+
+        <h3>Rate This Product</h3>
+
+        <div class="user-rating">
+
+            <i class="fa-regular fa-star star"
+            onclick="rateProduct(1)"></i>
+
+            <i class="fa-regular fa-star star"
+            onclick="rateProduct(2)"></i>
+
+            <i class="fa-regular fa-star star"
+            onclick="rateProduct(3)"></i>
+
+            <i class="fa-regular fa-star star"
+            onclick="rateProduct(4)"></i>
+
+            <i class="fa-regular fa-star star"
+            onclick="rateProduct(5)"></i>
+
+        </div>
+
+        <p id="ratingText">
+            Click a star to rate
+        </p>
+
+    </div>
+
+    <div class="review-section">
+
+        <h3>Write Review</h3>
+
+       <div class="textarea-box">
+
+    <i class="fa-regular fa-pen-to-square"></i>
+
+    <textarea
+    id="reviewText"
+    placeholder="Share your experience..."></textarea>
+
+</div>
+        <button
+        class="review-btn"
+        onclick="submitReview()">
+
+            Submit Review
+
+        </button>
+
+    </div>
+    <div id="reviewsContainer"></div>
+
+</div>
+</div>
+</div>
+<footer class="footer">
+      <div class="footer-container">
+        <div class="footer-box">
+          <div class="footer-logo">
+            <img src="./../images/logo.png" alt="Logo" class="footer-logo-img" />
+            <h2>MegaStore</h2>
+          </div>
+          <p>
+            Your one-stop destination for electronics, fashion, accessories and
+            more.
+          </p>
+        </div>
+
+        <div class="footer-box">
+          <h3>Quick Links</h3>
+
+          <a href="index.html">Home</a>
+          <a href="products.html">Products</a>
+          <a href="wishlist.html">Wishlist</a>
+          <a href="cart.html">Cart</a>
+        </div>
+
+        <div class="footer-box">
+          <h3>Customer Service</h3>
+
+          <a href="#">FAQs</a>
+          <a href="#">Shipping Policy</a>
+          <a href="#">Return Policy</a>
+          <a href="#">Privacy Policy</a>
+        </div>
+
+        <div class="footer-box">
+          <h3>Contact Us</h3>
+
+          <a href="mailto:pratikshashinde2622@gmail.com">
+            <img src="./images/gmail.png" class="contact-icon" /> 
+             Email Us
+          </a>
+
+          <a href="tel:+919595527262">
+            <img src="./images/phone.png" class="contact-icon" />
+             Call Us
+          </a>
+
+          <a href="https://maps.app.goo.gl/vdkeZXEgAPpNCxTE6" target="_blank">
+            <img src="./images/location.png" class="contact-icon" />
+            Location
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 MegaStore. All Rights Reserved.</p>
+      </div>
+    </footer>
+    
+<script src="./../js/product-data.js"></script>
+<script src="./../js/product-detail.js"></script>
+
+</body>
+</html>
