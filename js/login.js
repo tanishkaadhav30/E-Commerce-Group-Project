@@ -1,168 +1,133 @@
-function handleEyeClick(){
-    const password =
-        document.getElementById("loginPassword");
-        const viewElement =  document.getElementById("view");
+const loginForm = document.getElementById("loginForm");
+const registerForm = document.getElementById("registerForm");
 
-    if(password.type === "password"){
-        password.type= "text";
-        viewElement.src= "./../images/view.png";
-    }
-    else{
-        password.type="password";
-        viewElement.src = "./../images/hide.png";
-    }
+// Hide register form initially
+registerForm.style.display = "none";
+
+// Show Register Form
+function showRegister() {
+    loginForm.style.display = "none";
+    registerForm.style.display = "block";
 }
 
-function toggleRegisterPassword(){
-    const password =
-        document.getElementById("registerPassword");
-          const viewwElements =  document.getElementById("vieww");
-
- if(password.type === "password"){
-        password.type= "text";
-        viewwElements.src= "./../images/view.png";
-    }
-    else{
-        password.type="password";
-        viewwElements.src = "./../images/hide.png";
-    }
+// Show Login Form
+function showLogin() {
+    registerForm.style.display = "none";
+    loginForm.style.display = "block";
 }
 
+// Register
+registerForm.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-function toggleConfirmPassword(){
-    const password =
-        document.getElementById("confirmPassword");
-          const viewwwElementss =  document.getElementById("viewww");
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("registerEmail").value;
+    const mobile = document.getElementById("registerMobile").value;
+    const password = document.getElementById("registerPassword").value;
 
-    if(password.type === "password") {
-        password.type="text";
-   viewwwElementss.src= "./../images/view.png";
-    }
-    else{
-        password.type="password";
-        viewwwElementss.src = "./../images/hide.png";
-    }
-}
-// Remember Me
+    let users = JSON.parse(localStorage.getItem("users")) || [];
 
-window.onload=function(){
+    // Check if mobile already exists
+    let existingUser = users.find(
+        user => user.mobile === mobile
+    );
 
-    let savedEmail=
-        localStorage.getItem("savedEmail");
-
-    if(savedEmail){
-        document.getElementById("loginEmail").value=savedEmail;
-        document.getElementById("rememberMe").checked=true;
-    }
-};
-
-function loginUser(){
-
-    let email=
-        document.getElementById("loginEmail").value;
-
-    let password=
-        document.getElementById("loginPassword").value;
-
-    let remember=
-        document.getElementById("rememberMe").checked;
-
-    if(email==="" || password===""){
-        alert("Please fill all fields");
+    if (existingUser) {
+        alert("Mobile number already registered!");
         return;
     }
 
-    if(!email.includes("@") || !email.includes(".")){
-        alert("Invalid Email");
-        return;
-    }
+    const user = {
+        name,
+        email,
+        mobile,
+        password
+    };
 
-    if(remember){
-        localStorage.setItem(
-            "savedEmail",
-            email
-        );
-    }
-    else{
-        localStorage.removeItem(
-            "savedEmail"
-        );
-    }
+    users.push(user);
 
-    alert("Login Successful");
-}
+    localStorage.setItem(
+        "users",
+        JSON.stringify(users)
+    );
 
-// Password Strength
+    alert("Registration Successful!");
 
-document.getElementById("registerPassword").addEventListener("input",function(){
+    registerForm.reset();
 
-    let pass=this.value;
-    let bar = document.getElementById("strengthBar");
-
-    if(pass.length < 5) {
-        bar.style.width="30%";
-        bar.style.background="red";
-    }
-    else if(pass.length<8) {
-        bar.style.width="60%";
-        bar.style.background="orange";
-    }
-    else{
-        bar.style.width="100%";
-        bar.style.background="green";
-    }
+    showLogin();
 });
 
-// Register Validation
+// Login
+loginForm.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-function registerUser(){
+    const mobile = document.getElementById("loginMobile").value;
+    const password = document.getElementById("loginPassword").value;
 
-    let name=
-        document.getElementById("fullName").value;
+    let users = JSON.parse(localStorage.getItem("users")) || [];
 
-    let email=
-        document.getElementById("registerEmail").value;
+    let user = users.find(
+        u =>
+            u.mobile === mobile &&
+            u.password === password
+    );
 
-    let mobile=
-        document.getElementById("mobile").value;
+    if (user) {
 
-    let password=
-        document.getElementById("registerPassword").value;
+        localStorage.setItem(
+            "currentUser",
+            JSON.stringify(user)
+        );
 
-    let confirm=
-        document.getElementById("confirmPassword").value;
+        alert("Login Successful!");
 
-    let terms=
-        document.getElementById("terms").checked;
+        // Redirect to products page
+        window.location.href = "./../pages/product.html";
 
-    if(name==="" ||
-       email==="" ||
-       mobile==="" ||
-       password==="" ||
-       confirm===""){
-        alert("Please fill all fields");
-        return;
+    } else {
+
+        alert("Invalid Mobile Number or Password");
+
+    }
+});
+function toggleLoginPassword() {
+
+    const password =
+        document.getElementById("loginPassword");
+
+    const eye =
+        document.getElementById("loginEye");
+
+    if (password.type === "password") {
+        password.type = "text";
+        eye.className = "fa-solid fa-eye-slash";
+        eye.src = "./../images/view.png";
+    }
+    else {
+        password.type = "password";
+        eye.className = "fa-solid fa-eye";
+        eye.src = "./../images/hide.png";
+    }
+}
+
+function toggleRegisterPassword() {
+
+    const password =
+        document.getElementById("registerPassword");
+
+    const eye =
+        document.getElementById("registerEye");
+
+    if (password.type === "password") {
+        password.type = "text";
+        eye.className = "fa-solid fa-eye-slash";
+        eye.src = "./../images/view.png";
     }
 
-    if(!/^[A-Za-z ]+$/.test(name)){
-        alert("Name should contain only letters");
-        return;
+    else {
+        password.type = "password";
+        eye.className = "fa-solid fa-eye";
+        eye.src = "./../images/hide.png";
     }
-
-    if(!/^[0-9]{10}$/.test(mobile)){
-        alert("Mobile must be 10 digits");
-        return;
-    }
-
-    if(password!==confirm){
-        alert("Passwords do not match");
-        return;
-    }
-
-    if(!terms){
-        alert("Accept Terms & Conditions");
-        return;
-    }
-
-    alert("Registration Successful");
 }

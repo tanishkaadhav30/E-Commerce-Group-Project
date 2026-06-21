@@ -4,217 +4,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login & Register</title>
-
+    <title>login Page</title>
     <link rel="stylesheet" href="./../css/login.css">
-    
-
 </head>
 
 <body>
 
-    <div class="main-container">
+    <div class="container">
 
-        <!-- Left Side -->
-        <div class="left-section">
-            <div>
-                <img src="./../images/imagebc.jpeg" alt="backgroundimage" class="bac-img" />
-                <img src="./../images/accountimage.avif" alt="accountimage" class="acc-img" />
-                <i class="left-card">
-                    <h2 style="margin-top: 30px;"> Welcome Back!!! </h2>
 
-                    <p style="margin-top: 20px; font-size: 18px; ;">
-                        Enter Your Personal Details and start your journey with us!!!
-                    </p>
-                </i>
-            </div>
+        <!-- Login Form -->
+        <form class="loginbox" id="loginForm">
+            <img src="./../images/imagebc.jpeg" alt="ladyimage" class="image" />
+            <br />
+            <h2 style="color:#6474eb">Login</h2>
 
-        </div>
+            <input type="text" id="loginMobile" placeholder=" Enter Mobile Number" required>
 
-        <!-- Right Side -->
-        <div class="right-section">
+            <div class="password-box">
 
-            <!-- Login Form -->
+                <input type="password" id="loginPassword" class="password-input" placeholder=" Enter Password" required>
+                <img src="./../images/hide.png" onclick="toggleLoginPassword()" class="eye-icon" alt="hideicon"
+                    id="loginEye">
 
-            <div class="login-box">
+                <button type="button" class="eye-btn" onclick="toggleLoginPassword()">
 
-                <h2 style="color:#64748b;">Login
-                    <img src="./../images/login.png" style="margin-left: 10px; margin-top: 10px;" />
-                </h2>
-
-                <div class="input-group">
-
-                    <input type="email" id="loginEmail" placeholder="Enter Email" style="border: blue 1px solid;"
-                        required />
-                    </label>
-
-                    <small id="emailError"></small>
-
-                </div>
-
-                <div class="input-group password-box">
-                    <input type="password" id="loginPassword" 
-                    class="password-box" placeholder="Enter Password"
-                        style="border: blue 1px solid;" required />
-
-                    <img src="../images/hide.png" id="view"
-                    alt="hide" onclick="handleEyeClick()">
-
-                    <small id="passwordError"></small>
-
-                </div>
-
-                <div class="remember-row">
-                    <label>
-                        <input type="checkbox" id="rememberMe" required />
-                        Remember Me
-                    </label>
-                    <a href="#register" class="forgot-password">
-                        Forgot Password?
-                    </a>
-
-                </div>
-
-                <button type="submit" onclick="loginUser()">
-
-                    Login <span id="spinner"></span>
+                    <i class="fa-solid fa-eye" id="loginEye"></i>
 
                 </button>
-                <p style="margin-top: 20px; font-size: 18px; color: #555;">
-                    Don't have an account?
-                    <a href="#register">
-
-                        Register
-
-                    </a>
-
-                </p>
 
             </div>
 
-            <!-- Register Form -->
-            <div class="register container">
-                <div class="register-box" id="register">
+            <button type="submit">
+                Login
+            </button>
 
-                    <h2
-                        style="padding-top: 4px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 28px; color:#64748b;">
-                        Create Your Account</h2>
+            <p>
+                Don't have an account?
+                <span onclick="showRegister()">
+                    Register
+                </span>
+            </p>
 
-                    <input type="text" id="fullName" placeholder=" Enter Your Full Name" required
-                        style="border: blue 1px solid;" />
+        </form>
 
-                    <small id="nameError"></small>
+        <!-- Register Form -->
+        <form id="registerForm">
 
-                    <input type="email" id="registerEmail" placeholder=" Enter Email Address"
-                        style="border: blue 1px solid;" required />
+            <h2 style="color:#6474eb">Register</h2>
 
-                    <small id="registerEmailError"></small>
+            <input type="text" id="name" placeholder=" Enter Full Name" required>
 
-                    <input type="tel" id="mobile" placeholder=" Enter Mobile Number" style="border:blue 1px solid;"
-                        required />
+            <input type="email" id="registerEmail" placeholder=" EnterEmail Address" required>
 
-                    <small id="mobileError"></small>
+            <input type="text" id="registerMobile" placeholder=" Enter Mobile Number" required>
 
-                    <div class="gender">
+            <div class="password-box">
 
-                        <label>
-                            <input type="radio" name="gender" value="Male">
-                            Male
-                        </label>
+                <input type="password" id="registerPassword" placeholder=" Enter Password" required>
+                <img src="./../images/hide.png" onclick="toggleRegisterPassword()" class="eye-icon" alt="hideicon"
+                    id="registerEye">
 
-                        <label>
-                            <input type="radio" name="gender" value="Female">
-                            Female
-                        </label>
+                <button type="button" class="eye-btn" onclick="toggleRegisterPassword()">
 
-                        <label>
-                            <input type="radio" name="gender" value="Other">
-                            Other
-                        </label>
+                    <i class="fa-solid fa-eye" id="registerEye"></i>
 
-                    </div>
-
-                    <div class="password-box">
-
- <input type="password" id="registerPassword" placeholder="Password"  
-  class="password-box"  style="border: blue 1px solid;" required />
-
-                        <img src="../images/hide.png" id="vieww" onclick="toggleRegisterPassword()" />
-
-                    </div>
-
-                    <div id="strengthMeter">
-
-                        <div id="strengthBar"></div>
-
-                    </div>
-
-                    <small>
-
-                        Password must contain:
-                        8 characters,
-                        1 number,
-                        1 special character
-
-                    </small>
-
-                    <div class="password-box">
-
-                        <input type="password" id="confirmPassword" placeholder="Confirm Password"
-                            style="border: blue 1px solid;" required />
-
-                        <img src="../images/hide.png" onclick="toggleConfirmPassword()" id="viewww"
-                    alt="hide" onclick="handleEyeClick()"/>
-
-                    </div>
-
-                    <small id="confirmError"></small>
-
-                    <div class="terms">
-
-                        <input type="checkbox" id="terms">
-
-                        <label for="terms" style="color: #555; 
-      margin-top: 10px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
-                font-size: 18px;">
-
-
-                            I agree to Terms & Conditions
-
-                        </label>
-
-                    </div>
-
-                    <button onclick="registerUser()">
-
-                        Create Account
-
-                    </button>
-
-                    <p style="color: #555; margin-top: 15px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
-                font-size: 19px;">
-
-                        Already have an account?
-
-                        <a href="#top">
-
-                            Login
-
-                        </a>
-
-                    </p>
-
-                </div>
-
+                </button>
 
             </div>
-        </div>
+
+            <button type="submit">
+                Register →
+            </button>
+
+            <p>
+                Already have an account?
+                <span onclick="showLogin()">
+                    Login
+                </span>
+            </p>
+
+        </form>
+
     </div>
 
-
-<script src="./../js/login.js"></script>
-    <script src="../js/login.js"></script>
-
+    <script src="./../js/login.js"></script>
 </body>
 
 </html>
