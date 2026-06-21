@@ -1,0 +1,206 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 8%;
+    background-color: #111827;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-img {
+    width: 70px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.nav-links a:hover {
+    color: #3b82f6;
+}
+
+.menu-btn {
+    display: none;
+    cursor: pointer;
+}
+
+.menu-btn img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.logo a {
+    text-decoration: none;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.nav-icon{
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.nav-links a:hover{
+    color: #3b82f6;
+    transform: translateY(-2px);
+}
+
+/* responsive */
+@media(max-width:768px) {
+
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        background: #111827;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 20px 0;
+        display: none;
+    }
+
+    .nav-links.active {
+        display: flex !important;
+    }
+}
+
+/* dark light */
+/* Theme Button */
+.theme-btn{
+    width: 45px;
+    height: 45px;
+    border: 2px solid #3b82f6;
+    border-radius: 50%;
+    background: rgba(59, 130, 246, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.theme-btn img{
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
+.theme-btn:hover{
+    background: #f2f2f2;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(59,130,246,0.5);
+}
+
+/* Dark Mode */
+
+/* ================= DARK MODE ================= */
+
+body.dark-mode{
+    background:#0f172a;
+    color:#fff;
+}
+
+/* CART PAGE */
+body.dark-mode .cart-section,
+body.dark-mode .coupon-box,
+body.dark-mode .summary-box,
+body.dark-mode .card,
+body.dark-mode .empty-cart-box{
+    background:#1e293b;
+    color:#fff;
+}
+
+body.dark-mode .cart-item{
+    background:#334155;
+    border-color:#475569;
+}
+
+body.dark-mode .product-info p,
+body.dark-mode .price-box del{
+    color:#cbd5e1;
+}
+
+body.dark-mode .back-btn{
+    background:#334155;
+    color:#fff;
+}
+
+body.dark-mode .back-btn:hover{
+    background:#475569;
+}
+
+/* WISHLIST PAGE */
+
+body.dark-mode .summary-card,
+body.dark-mode .product-card,
+body.dark-mode .select-all-box,
+body.dark-mode .search-box input,
+body.dark-mode #sortSelect{
+    background:#1e293b;
+    color:#fff;
+    border-color:#475569;
+}
+
+body.dark-mode .wishlist-header p,
+body.dark-mode .summary-card span,
+body.dark-mode .empty-state p{
+    color:#cbd5e1;
+}
+
+body.dark-mode .card-content h3,
+body.dark-mode .wishlist-header h1,
+body.dark-mode .empty-state h2{
+    color:#fff;
+}
+
+body.dark-mode .share-product{
+    background:#334155;
+    color:#fff;
+}
+
+body.dark-mode #toast{
+    background:#334155;
+}

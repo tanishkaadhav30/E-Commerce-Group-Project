@@ -6,9 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login Page</title>
     <link rel="stylesheet" href="./../css/login.css">
+    <link rel="stylesheet" href="./../css/footer.css">
+    <link rel="stylesheet" href="./../css/header.css">
 </head>
 
 <body>
+    <!-- header -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="./../images/logo.png" alt="Logo" class="logo-img" />
+                <a href="./../index.html">MegaStore</a>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="./../index.html"><img src="./../images/home.png" class="nav-icon">Home</a></li>
+                <li><a href="./products.html"><img src="./../images/shop.png" class="nav-icon">Products</a></li>
+                <li><a href="./wishlist.html"><img src="./../images/like.png" class="nav-icon">Wishlist</a></li>
+                <li><a href="./about.html"><img src="./../images/info.png" class="nav-icon">About</a></li>
+                <li><a href="./cart.html"><img src="./../images/card.png" class="nav-icon">Cart</a></li>
+                <li><a href="./login.html"><img src="./../images/log.png" class="nav-icon">Login</a></li>
+            </ul>
+
+            <button id="themeToggle" class="theme-btn">
+                <img src="../images/moon.png" alt="theme" id="themeIcon">
+            </button>
+
+            <div class="menu-btn" onclick="toggleMenu()">
+                <img src="./../images/menu.png" alt="menu" />
+            </div>
+    </header>
 
     <div class="container">
 
@@ -32,6 +59,72 @@
                     <i class="fa-solid fa-eye" id="loginEye"></i>
 
                 </button>
+
+    <div class="main-container">
+
+        <!-- Left Side -->
+        <div class="left-section">
+            <div>
+                <img src="./../images/imagebc.jpeg" alt="backgroundimage" class="bac-img" />
+                <img src="./../images/accountimage.avif" alt="accountimage" class="acc-img" />
+                <i class="left-card">
+                    <h2 style="margin-top: 30px;"> Welcome Back!!! </h2>
+
+                    <p style="margin-top: 20px; font-size: 18px; ;">
+                        Enter Your Personal Details and start your journey with us!!!
+                    </p>
+                </i>
+            </div>
+        </div>
+
+        <!-- Right Side -->
+        <div class="right-section">
+
+            <!-- Login Form -->
+            <div class="login-box">
+
+                <h2 style="color:#64748b;">Login
+                    <img src="./../images/login.png" style="margin-left: 10px; margin-top: 10px;" />
+                </h2>
+
+                <div class="input-group">
+
+                    <input type="email" id="loginEmail" placeholder="Enter Email" style="border: blue 1px solid;"
+                        required />
+                    </label>
+
+                    <small id="emailError"></small>
+                </div>
+
+                <div class="input-group password-box">
+                    <input type="password" id="loginPassword" class="password-box" placeholder="Enter Password"
+                        style="border: blue 1px solid;" required />
+
+                    <img src="../images/hide.png" id="view" alt="hide" onclick="handleEyeClick()">
+
+                    <small id="passwordError"></small>
+                </div>
+
+                <div class="remember-row">
+                    <label>
+                        <input type="checkbox" id="rememberMe" required />
+                        Remember Me
+                    </label>
+                    <a href="#register" class="forgot-password">
+                        Forgot Password?
+                    </a>
+                </div>
+
+                <button type="submit" onclick="loginUser()">
+                    Login <span id="spinner"></span>
+
+                </button>
+                <p style="margin-top: 20px; font-size: 18px; color: #555;">
+                    Don't have an account?
+                    <a href="#register">
+                        Register
+                    </a>
+                </p>
 
             </div>
 
@@ -61,6 +154,20 @@
 
             <div class="password-box">
 
+                        <label>
+                            <input type="radio" name="gender" value="Other">
+                            Other
+                        </label>
+                    </div>
+
+                    <div class="password-box">
+                        <input type="password" id="registerPassword" placeholder="Password" class="password-box"
+                            style="border: blue 1px solid;" required />
+
+                        <img src="../images/hide.png" id="vieww" onclick="toggleRegisterPassword()" />
+                    </div>
+
+
                 <input type="password" id="registerPassword" placeholder=" Enter Password" required>
                 <img src="./../images/hide.png" onclick="toggleRegisterPassword()" class="eye-icon" alt="hideicon"
                     id="registerEye">
@@ -89,6 +196,116 @@
     </div>
 
     <script src="./../js/login.js"></script>
+                        <div id="strengthBar"></div>
+                    </div>
+
+                    <small>
+                        Password must contain:
+                        8 characters,
+                        1 number,
+                        1 special character
+                    </small>
+
+                    <div class="password-box">
+
+                        <input type="password" id="confirmPassword" placeholder="Confirm Password"
+                            style="border: blue 1px solid;" required />
+
+                        <img src="../images/hide.png" onclick="toggleConfirmPassword()" id="viewww" alt="hide"
+                            onclick="handleEyeClick()" />
+                    </div>
+
+                    <small id="confirmError"></small>
+
+                    <div class="terms">
+
+                        <input type="checkbox" id="terms">
+
+                        <label for="terms" style="color: #555; 
+      margin-top: 10px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+                font-size: 18px;">
+                            I agree to Terms & Conditions
+                        </label>
+                    </div>
+
+                    <button onclick="registerUser()">
+                        Create Account
+                    </button>
+
+                    <p style="color: #555; margin-top: 15px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+                font-size: 19px;">
+
+                        Already have an account?
+
+                        <a href="#top">
+
+                            Login
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-box">
+                <div class="footer-logo">
+                    <img src="./../images/logo.png" alt="Logo" class="footer-logo-img" />
+                    <h2>MegaStore</h2>
+                </div>
+                <p>
+                    Your one-stop destination for electronics, fashion, accessories and
+                    more.
+                </p>
+            </div>
+
+            <div class="footer-box">
+                <h3>Quick Links</h3>
+
+                <a href="./../index.html">Home</a>
+                <a href="./products.html">Products</a>
+                <a href="./wishlist.html">Wishlist</a>
+                <a href="./cart.html">Cart</a>
+            </div>
+
+            <div class="footer-box">
+                <h3>Customer Service</h3>
+
+                <a href="#">FAQs</a>
+                <a href="#">Shipping Policy</a>
+                <a href="#">Return Policy</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+
+            <div class="footer-box">
+                <h3>Contact Us</h3>
+
+                <a href="mailto:pratikshashinde2622@gmail.com">
+                    <img src="./../images/gmail.png" class="contact-icon" />
+                    Email Us
+                </a>
+
+                <a href="tel:+919595527262">
+                    <img src="./../images/phone.png" class="contact-icon" />
+                    Call Us
+                </a>
+
+                <a href="https://maps.app.goo.gl/vdkeZXEgAPpNCxTE6" target="_blank">
+                    <img src="./../images/location.png" class="contact-icon" />
+                    Location
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 MegaStore. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script src="../js/login.js"></script>
+
+
 </body>
 
 </html>
